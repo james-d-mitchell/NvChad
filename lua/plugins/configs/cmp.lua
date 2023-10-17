@@ -61,10 +61,10 @@ local options = {
     },
   },
   snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
-  },
+   expand = function(args)
+       require("luasnip").lsp_expand(args.body)
+     end,
+   },
 
   formatting = formatting_style,
 

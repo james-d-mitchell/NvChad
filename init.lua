@@ -19,3 +19,12 @@ end
 dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
+
+require("nvim-tree").setup({
+  filters = {
+    custom = {"*.swp", "*.swo"},
+  },
+})
+
+local vimrc = vim.fn.stdpath("config") .. "/init.vim.old"
+vim.cmd.source(vimrc)
