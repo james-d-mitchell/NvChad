@@ -12,7 +12,7 @@ M.general = {
     ["<C-h>"] = { "<Left>", "Move left" },
     ["<C-l>"] = { "<Right>", "Move right" },
     ["<C-j>"] = { "<Down>", "Move down" },
-    ["<C-k>"] = { "<Up>", "Move up" },
+    ["<C-k>"] = { "<Esc>ld$A", "delete to end of line" },
   },
 
   n = {
@@ -21,7 +21,7 @@ M.general = {
     ["<C-h>"] = { "<C-w>h", "Window left" },
     ["<C-l>"] = { "<C-w>l", "Window right" },
     ["<C-j>"] = { "<C-w>j", "Window down" },
-    ["<C-k>"] = { "<C-w>k", "Window up" },
+    ["<C-k>"] = { "d$", "delete to end of line" },
 
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
