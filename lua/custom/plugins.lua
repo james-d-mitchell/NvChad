@@ -21,7 +21,7 @@ local plugins = {
         "clang-format",
         "glow",
         "black",
-        "pyright"
+        "pyright",
       }
     }
   },
@@ -63,5 +63,8 @@ local plugins = {
     end,
   },
   {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
+  {
+    "dense-analysis/ale", lazy = false,
+  },
 }
 return plugins

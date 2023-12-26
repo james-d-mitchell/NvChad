@@ -22,13 +22,13 @@ set comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-,fb:[+],fb:[x],fb:[-]
 set comments +=fb:-
 set fo+=n
 
+filetype plugin on
+
 au BufRead,BufNewFile *.tpp set filetype=cpp
 
 augroup gap
   au!
-  autocmd BufEnter *.g.txt,*.g,*.gi,*.gd,*.gap,*.tst source /Users/jdm/.vim/syntax/gap.vim
-  autocmd BufEnter *.g.txt,*.g,*.gi,*.gd,*.gap,*.tst source /Users/jdm/.vim/indent/gap.vim
-  autocmd BufEnter *.g.txt,*.g,*.gi,*.gd,*.gap,*.tst set complete=.,w,b,u,t,i,k~/.vim/GAPWORDS
+  autocmd BufEnter *.g.txt,*.g,*.gi,*.gd,*.gap,*.tst setfiletype gap
 augroup END
 
 augroup latex
