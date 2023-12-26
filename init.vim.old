@@ -1,0 +1,107 @@
+set noincsearch
+set autochdir
+set wrap
+set linebreak
+set textwidth=79
+set expandtab
+set softtabstop=2
+set shiftwidth=2
+set ww=b,<,>,[,]
+syntax enable
+set hlsearch
+set ignorecase
+set number
+set noerrorbells
+set t_vb=
+set foldminlines=100000
+set title
+set clipboard+=unnamedplus
+
+" Indent lists
+set comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-,fb:[+],fb:[x],fb:[-]
+set comments +=fb:-
+set fo+=n
+
+au BufRead,BufNewFile *.tpp set filetype=cpp
+
+augroup gap
+  au!
+  autocmd BufEnter *.g.txt,*.g,*.gi,*.gd,*.gap,*.tst source /Users/jdm/.vim/syntax/gap.vim
+  autocmd BufEnter *.g.txt,*.g,*.gi,*.gd,*.gap,*.tst source /Users/jdm/.vim/indent/gap.vim
+  autocmd BufEnter *.g.txt,*.g,*.gi,*.gd,*.gap,*.tst set complete=.,w,b,u,t,i,k~/.vim/GAPWORDS
+augroup END
+
+augroup latex
+  au!
+  autocmd BufEnter *.tex set iskeyword+=-
+  autocmd BufEnter *.tex setlocal spell spelllang=en_gb
+  autocmd BufEnter *.tex highlight Normal guibg=black guifg=white
+  map ] ]s
+  syntax match quoteblock /\\thref{[^}]\+}/ contains=@NoSpell
+  syntax match quoteblock /\\thlabel{[^}]\+}/ contains=@NoSpell
+augroup END
+
+augroup longlines
+  au!
+  autocmd BufEnter *.csv,*.sh,*.table set nowrap
+  autocmd BufEnter *.csv,*.sh,*.table set nolinebreak
+  autocmd BufEnter *.csv,*.sh,*.table set nolist
+  autocmd BufEnter *.csv,*.sh,*.table set formatoptions+=l
+  autocmd BufEnter *.csv,*.sh,*.table set textwidth=0
+  autocmd BufEnter *.csv,*.sh,*.table set wrapmargin=0
+augroup END
+
+augroup c
+  au!
+  autocmd BufEnter *.c,*.h,*.cpp,*.hpp,*.cc,*.hh,*.tpp set number | set iskeyword+=_ | set comments^=://\!
+  autocmd BufWritePre *.c,*.h,*.cpp,*.hpp,*.cc,*.hh,*.tpp :%s/\s\+$//e
+augroup END
+
+augroup py
+  au!
+  autocmd BufEnter let g:PyLintCWindow = 1
+  autocmd BufEnter let g:PyLintSigns = 1
+  autocmd BufEnter let g:PyLintOnWrite = 1
+  autocmd BufWritePre *.py :%s/\s\+$//e
+augroup END
+
+augroup xml
+  au!
+  autocmd BufEnter *.xml set fp=
+  autocmd BufEnter *.xml set fex=
+  autocmd BufEnter *.xml set wrap
+  autocmd BufEnter *.xml set synmaxcol=80
+augroup END
+
+imap <C-e> <Esc>A
+map <C-e> A
+imap <C-k> <Esc>ld$A
+map <C-k> d$
+map j gqq
+imap <C-j> <Esc>J a
+vmap y ygv<Esc>
+map § :set invpaste paste?<CR>
+nmap <CR> o<Esc>k
+nnoremap qq :w\|bd<cr>
+
+" replace currently selected text with default register
+" without yanking it
+vnoremap <leader>p "_dP
+" yank to the system clipboard
+nnoremap Y "*y
+
+" search and replace for the word under the cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+" search and replace for the current visual selection
+vnoremap <Leader>s y:%s/<C-r>"/
+
+" search for the word under the cursor
+nnoremap <Leader>f /\<<C-r><C-w>\><CR>
+" search for the current visual selection
+vnoremap <Leader>f y/\V<C-r>"<CR>
+
+" move between splits using the arrow keys
+nmap <silent> <M-Up> :wincmd k<CR>
+nmap <silent> <M-Down> :wincmd j<CR>
+nmap <silent> <M-Left> :wincmd h<CR>
+nmap <silent> <M-Right> :wincmd l<CR>
