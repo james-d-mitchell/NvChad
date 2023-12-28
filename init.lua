@@ -32,4 +32,4 @@ local vimrc = vim.fn.stdpath("config") .. "/init.vim.old"
 vim.cmd.source(vimrc)
 
 vim.keymap.set("n", "S", "<cmd> lua require('telescope.builtin').buffers() <CR>", {silent = false, noremap = true })
-vim.keymap.set("n", "A", "<cmd> lua require('telescope.builtin').registers() <CR>", {silent = false, noremap = true })
+vim.keymap.set("n", "R", "<cmd> lua require('telescope.builtin').registers() <CR>", {silent = false, noremap = true })
