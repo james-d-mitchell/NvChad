@@ -33,3 +33,5 @@ vim.cmd.source(vimrc)
 
 vim.keymap.set("n", "S", "<cmd> lua require('telescope.builtin').buffers() <CR>", {silent = false, noremap = true })
 vim.keymap.set("n", "R", "<cmd> lua require('telescope.builtin').registers() <CR>", {silent = false, noremap = true })
+
+vim.keymap.set("n", "D", "<cmd> lua vim.diagnostic.open_float(0, {scope='line'}) <CR>", {silent = false, noremap = true })
