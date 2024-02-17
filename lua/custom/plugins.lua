@@ -66,5 +66,8 @@ local plugins = {
   {
     "dense-analysis/ale", lazy = false,
   },
+  {
+    "FabijanZulj/blame.nvim"
+  },
 }
 return plugins

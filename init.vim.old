@@ -28,7 +28,7 @@ au BufRead,BufNewFile *.tpp set filetype=cpp
 
 augroup gap
   au!
-  autocmd BufEnter *.g.txt,*.g,*.gi,*.gd,*.gap,*.tst setfiletype gap
+  autocmd BufEnter *.g.txt,*.g,*.gi,*.gd,*.gap,*.tst setfiletype gap | set comments^=:#\!
 augroup END
 
 augroup latex
