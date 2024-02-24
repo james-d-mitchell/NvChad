@@ -69,5 +69,29 @@ local plugins = {
   {
     "FabijanZulj/blame.nvim"
   },
+  {
+    'mvllow/modes.nvim',
+    lazy = false,
+    tag = 'v0.2.0',
+    config = function()
+      require('modes').setup()
+    end
+  },
+  {
+    "chrisgrieser/nvim-early-retirement",
+    config = true,
+    event = "VeryLazy",
+  },
+  {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      -- you'll need at least one of these
+      -- {'nvim-telescope/telescope.nvim'},
+      -- {'ibhagwan/fzf-lua'},
+    },
+    config = function()
+      require('neoclip').setup()
+    end,
+  }
 }
 return plugins
