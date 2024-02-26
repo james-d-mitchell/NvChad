@@ -84,14 +84,27 @@ local plugins = {
   },
   {
     "AckslD/nvim-neoclip.lua",
+    lazy = true,
     requires = {
-      -- you'll need at least one of these
-      -- {'nvim-telescope/telescope.nvim'},
-      -- {'ibhagwan/fzf-lua'},
+      {'nvim-telescope/telescope.nvim'},
     },
     config = function()
       require('neoclip').setup()
     end,
-  }
+    keys = {
+      { "<leader>r", "<cmd>Telescope neoclip plus<CR>", desc = "Toggle neoclip" },
+    },
+  },
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = { -- Example mapping to toggle outline
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+    opts = {
+      -- Your setup opts here
+    },
+  },
 }
 return plugins
