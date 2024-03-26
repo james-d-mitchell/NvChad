@@ -84,7 +84,7 @@ local plugins = {
   },
   {
     "AckslD/nvim-neoclip.lua",
-    lazy = true,
+    lazy = false,
     requires = {
       {'nvim-telescope/telescope.nvim'},
     },

@@ -37,6 +37,7 @@ function! FixWSGAP()
   silent '<,'>s/< =/<=/ge
   
   silent '<,'>s/^gap >/gap>/ge
+  silent '<,'>s/^# gap >/# gap>/ge
   
   silent '<,'>s/,\s\{2,}/, /ge
   silent '<,'>s/=\s\{2,}/= /ge
